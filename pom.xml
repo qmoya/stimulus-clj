@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+  <modelVersion>4.0.0</modelVersion>
+    
+  <groupId>com.github.qmoya</groupId>
+    
+  <artifactId>stimulus</artifactId>
+    
+  <version>0.1.5</version>
+    
+  <name>stimulus-clj</name>
+    
+  <dependencies>
+        
+    <dependency>
+            
+      <groupId>thheller</groupId>
+            
+      <artifactId>shadow-cljs</artifactId>
+            
+      <version>2.25.6</version>
+          
+    </dependency>
+        
+    <dependency>
+            
+      <groupId>camel-snake-kebab</groupId>
+            
+      <artifactId>camel-snake-kebab</artifactId>
+            
+      <version>0.4.3</version>
+          
+    </dependency>
+      
+  </dependencies>
+    
+  <build>
+        
+    <sourceDirectory>src</sourceDirectory>
+      
+  </build>
+    
+  <repositories/>
+  
+  <scm>
+    <url>https://github.com/qmoya/stimulus-clj/tree/master</url>
+    <tag>adb840131ba3e6f65a36f307ec854bf0e4dd5556</tag>
+    <connection>scm:git:https://github.com/qmoya/stimulus-clj.git</connection>
+    <developerConnection>scm:git:https://github.com/qmoya/stimulus-clj.git</developerConnection>
+  </scm>
+</project>
