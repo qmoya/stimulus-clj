@@ -1,0 +1,3 @@
+{:group-id "com.github.qmoya"
+ :artifact-id "stimulus"
+ :scm-url "https://github.com/qmoya/stimulus-clj/tree/master"}
