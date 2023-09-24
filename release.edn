@@ -1,0 +1,3 @@
+{:group-id "qmoya"
+ :artifact-id "qmoya.stimulus.core"
+ :scm-url "https://github.com/qmoya/stimulus-clj/tree/master/core"}
