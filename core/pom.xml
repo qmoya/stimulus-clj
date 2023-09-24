@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+            
+  
+  
+  
+  
+  <modelVersion>4.0.0</modelVersion>
+            
+  
+  
+  
+  
+  <groupId>quico.codes</groupId>
+            
+  
+  
+  
+  
+  <artifactId>codes.quico.stimulus.core</artifactId>
+            
+  
+  
+  
+  
+  <version>0.1.5</version>
+            
+  
+  
+  
+  
+  <name>core</name>
+            
+  
+  
+  
+  
+  <dependencies/>
+            
+  
+  
+  
+  
+  <build>
+                        
+    
+    
+    
+    
+    <sourceDirectory>src</sourceDirectory>
+                      
+  
+  
+  
+  
+  </build>
+            
+  
+  
+  
+  
+  <repositories/>
+          
+  
+  
+  
+  
+  <scm>
+                    
+    
+    
+    
+    <url>https://github.com/qmoya/stimulus-clj/tree/master/core</url>
+                    
+    
+    
+    
+    <tag>820df848af18e00180a9cc2cea1c2bf09e4b8663</tag>
+                    
+    
+    
+    
+    <connection>scm:git:https://github.com/qmoya/stimulus-clj.git</connection>
+                    
+    
+    
+    
+    <developerConnection>scm:git:https://github.com/qmoya/stimulus-clj.git</developerConnection>
+                  
+  
+  
+  
+  </scm>
+        
+
+
+
+</project>
