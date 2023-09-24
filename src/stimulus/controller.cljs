@@ -2,7 +2,7 @@
   (:require ["@hotwired/stimulus" :refer [Application]]
             [clojure.string :as str]
             [camel-snake-kebab.core :as csk])
-  (:require-macros [qmoya.stimulus :refer [defcontroller]]))
+  (:require-macros [stimulus.controller :refer [defcontroller]]))
 
 (defonce current-application (atom nil))
 

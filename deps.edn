@@ -1,10 +1,11 @@
-{:deps {thheller/shadow-cljs         {:mvn/version "2.25.6"}}
- :paths ["src"]
+{:deps {thheller/shadow-cljs {:mvn/version "2.25.6"}
+        camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.3"}}
+ :paths ["src" "test"]
  :aliases {:dev {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}}
            :test {:extra-paths ["test" "dev"]
                   :main-opts ["-m" "cljs-test-runner.main"]
                   :extra-deps {org.clojure/clojure {:mvn/version "1.11.1"}
-                               org.clojure/clojurescript {:mvn/version "1.11.60"} 
+                               org.clojure/clojurescript {:mvn/version "1.11.60"}
                                olical/cljs-test-runner {:mvn/version "3.8.0"}}}
            :release {:extra-deps {appliedscience/deps-library {:mvn/version "0.3.4"}}
                      :main-opts ["-m" "deps-library.release"]}}}

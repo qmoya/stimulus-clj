@@ -1,8 +1,8 @@
 (ns stimulus.core-test
-  (:require [cljs.test :refer [deftest]]
+  (:require [cljs.test :refer [deftest is]]
             [stimulus.controller :refer [defcontroller]]))
 
-(deftest greeting-controller
+(deftest test-greet-controller
   (let [expansion (macroexpand '(defcontroller GreetController
                                   {:extends Controller
                                    :targets ["output" "name"]}
@@ -12,23 +12,20 @@
                                             (js/console.log "called"))
                                    (greet [this event]
                                           (js/console.log event))]))]
-    (assert (= expansion "TODO"))))
+    (is (= expansion '(do 
+                        (shadow.cljs.modern/defclass GreetController 
+                          (extends nil) 
+                          (constructor [this context] 
+                                       (super context)) 
+                          Object 
+                          (get-output-target [this] 
+                                             (clojure.core/let [targets (.-targets this)] 
+                                               (.find targets "output")))
+                          (get-name-target [this] 
+                                           (clojure.core/let [targets (.-targets this)] 
+                                             (.find targets "name"))) 
+                          (initialize [this] (js/console.log (.get-output-target this)))
+                          (connect [this] (js/console.log "called")) 
+                          (greet [this event] (js/console.log event))) 
+                        (set! (.-targets GreetController) (clj->js ["output" "name"])))))))
 
-(comment
-  (macroexpand '(defcontroller ^{:extends Controller} GreetController
-                  {:targets ["output" "name"]}
-                  [(initialize [this]
-                               (js/console.log "greet: initialize"))
-                   (connect [this]
-                            (js/console.log "greet: called")
-                            (.get-output-target this)
-                            (js/console.log "greet: shanvitz")
-                            (let [targets (.-targets this)]
-                              (js/console.log targets)
-                              (js/console.log (.get-output-target this))))
-                   (greet [this event]
-                          (let [output-target (.get-output-target this)
-                                name-target (.get-name-target this)
-                                name (.-value name-target)
-                                greeting (str "Hello, " name "!")]
-                            (gdom/setTextContent output-target greeting)))])))

@@ -1,5 +1,6 @@
 {
     "devDependencies": {
-        "@hotwired/stimulus": "^3.2.2"
+        "@hotwired/stimulus": "^3.2.2",
+        "shadow-cljs": "^2.25.6"
     }
 }

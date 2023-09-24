@@ -1,3 +1,4 @@
+out/
 .clj-kondo/
 .cpcache/
 .lsp/
@@ -5,6 +6,6 @@ node_modules/
 .DS_Store
 *.jar
 /.calva
-/.nrepl-port
-/.shadow-cljs
-/cljs-test-runner-out
+.nrepl-port
+.shadow-cljs/
+cljs-test-runner-out/

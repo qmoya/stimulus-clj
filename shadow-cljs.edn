@@ -1,14 +1,11 @@
 {:deps true
- :builds
- {:test {:target :browser
-         :output-dir "out"
-         :modules {:main {:entries [stimulus.test-runner]}}
-         :compiler-options {:output-feature-set :es2018}
-         :release {:compiler-options {:infer-externs true
-                                      :closure-defines {goog.DEBUG false}}}}
-  :examples {:target :browser
-             :output-dir "out"
-             :asset-path "/out"
-             :modules {:main {:entries [stimulus.examples]}}
-             :release {:compiler-options {:infer-externs true
-                                          :closure-defines {goog.DEBUG false}}}}}}
+ :dev-http {8021 "out/test"}
+ :builds {:test {:target :browser-test
+                 :test-dir "out/test"
+                 :compiler-options {:output-feature-set :es2018}}
+          :examples {:target :browser
+                     :output-dir "out"
+                     :asset-path "/out"
+                     :modules {:main {:entries [stimulus.examples]}}
+                     :release {:compiler-options {:infer-externs true
+                                                  :closure-defines {goog.DEBUG false}}}}}}
