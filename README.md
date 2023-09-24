@@ -62,6 +62,5 @@ On the ClojureScript side:
             (gdom/setTextContent output-target greeting)))])
 
 (let [application (.start Application)]
-  (.register application "hello" strada/HelloController)
   (.register application "greet" GreetController))
 ```
