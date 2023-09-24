@@ -4,3 +4,7 @@
 node_modules/
 .DS_Store
 *.jar
+/.calva
+/.nrepl-port
+/.shadow-cljs
+/cljs-test-runner-out
