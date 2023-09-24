@@ -1,0 +1,14 @@
+{:deps true
+ :builds
+ {:test {:target :browser
+         :output-dir "out"
+         :modules {:main {:entries [stimulus.test-runner]}}
+         :compiler-options {:output-feature-set :es2018}
+         :release {:compiler-options {:infer-externs true
+                                      :closure-defines {goog.DEBUG false}}}}
+  :examples {:target :browser
+             :output-dir "out"
+             :asset-path "/out"
+             :modules {:main {:entries [stimulus.examples]}}
+             :release {:compiler-options {:infer-externs true
+                                          :closure-defines {goog.DEBUG false}}}}}}

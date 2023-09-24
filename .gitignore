@@ -1,0 +1,5 @@
+.clj-kondo/
+.cpcache/
+.lsp/
+node_modules/
+.DS_Store
