@@ -1,6 +1,6 @@
 (ns stimulus.core-test
   (:require [cljs.test :refer [deftest is]]
-            [stimulus.controller :refer [defcontroller]]
+            [stimulus.controller :refer [->controller]]
             [cljs.pprint :refer [pprint]]))
 
 (deftest test-greet-controller
