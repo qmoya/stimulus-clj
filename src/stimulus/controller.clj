@@ -16,16 +16,24 @@
                   (str/split #"\.")
                   (first))]
      (symbol (csk/->PascalCase (str name "-controller")))))
-
- (defmacro defcontroller [name options methods]
-   (let [target-fns (map target-fn (:targets options))]
+ 
+ (defn make-method [[k v]]
+   `(~(symbol k) ~(vector 'this 'event) ~v))
+ 
+ (defn controller [name options]
+   (let [target-fns (map target-fn (:targets options))
+         methods (map make-method (:actions options))]
      `(do
         (defclass ~name
           (~'extends ~(:extends (meta name)))
           (~'constructor ~(vector 'this 'context)
                          ~(list 'super 'context))
-
+   
           ~'Object
           ~@target-fns
           ~@methods)
+        (println "hello")
         (set! (.-targets ~name) ~(list 'clj->js (:targets options))))))
+ 
+ (defmacro defcontroller [name options] 
+   (controller name options))
