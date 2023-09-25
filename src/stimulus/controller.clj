@@ -18,7 +18,7 @@
      (symbol (csk/->PascalCase (str name "-controller")))))
  
  (defn make-method [[k v]]
-   `(~(symbol k) ~(vector 'this 'event) ~v))
+   `(~(symbol k) ~(vector 'this 'event) ~(list v 'this 'event)))
  
  (defn controller [name options]
    (let [target-fns (map target-fn (:targets options))
@@ -32,7 +32,6 @@
           ~'Object
           ~@target-fns
           ~@methods)
-        (println "hello")
         (set! (.-targets ~name) ~(list 'clj->js (:targets options))))))
  
  (defmacro defcontroller [name options] 
