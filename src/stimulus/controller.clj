@@ -11,8 +11,8 @@
 
 (defn external-target-fn [target-name]
   (let [target-sym (symbol (str "get-" target-name "-target"))]
-    (list 'defn ~target-sym ~(vector 'controller)
-          ~(list (str "." target-sym) 'controller))))
+    (list 'defn target-sym (vector 'controller)
+          (list (symbol (str "." target-sym)) 'controller))))
 
 (defn controller-name [filename]
   (let [name (-> filename
@@ -39,9 +39,10 @@
          ~@target-fns
          ~@methods)
        (set! (.-targets ~name) ~(list 'clj->js (:targets options)))
-      ;;  ~@external-target-fns
+       ~@external-target-fns
        ~name)))
 
 (defmacro ->controller
+  {:clj-kondo/ignore [:unresolved-symbol :infer-warning ]}
   ([name options] (controller name options))
   ([options] (controller (gensym "Controller") options)))

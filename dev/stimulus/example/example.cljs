@@ -3,9 +3,6 @@
             ["@hotwired/stimulus" :refer [Controller Application]]
             [goog.dom :as gdom]))
 
-(defn get-name-target [controller]
-  (.get-name-target controller))
-
 (defn greet [controller event]
   (js/console.log (.-value (get-name-target controller))))
 
