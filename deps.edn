@@ -1,7 +1,16 @@
 {:deps {thheller/shadow-cljs {:mvn/version "2.25.6"}
         camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.3"}}
- :paths ["src" "test"]
- :aliases {:dev {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}}
+ :paths ["src" "dev" "resources"]
+ :aliases {:examples {:extra-paths ["dev"]
+                      :main-opts ["-m" "stimulus.example.server"]
+                      :resource-paths ["resources"]
+                      :extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}
+                                   io.pedestal/pedestal.service {:mvn/version "0.6.0"}
+                                   io.pedestal/pedestal.route   {:mvn/version "0.6.0"}
+                                   io.pedestal/pedestal.jetty   {:mvn/version "0.6.0"}
+                                   thheller/shadow-cljs         {:mvn/version "2.25.3"}
+                                   org.slf4j/slf4j-simple       {:mvn/version "1.7.28"}
+                                   hiccup/hiccup                {:mvn/version "2.0.0-RC1"}}}
            :test {:extra-paths ["test" "dev"]
                   :main-opts ["-m" "cljs-test-runner.main"]
                   :extra-deps {org.clojure/clojure {:mvn/version "1.11.1"}

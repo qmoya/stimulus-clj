@@ -2,7 +2,7 @@
   (:require ["@hotwired/stimulus" :refer [Application]]
             [clojure.string :as str]
             [camel-snake-kebab.core :as csk])
-  (:require-macros [stimulus.controller :refer [defcontroller]]))
+  (:require-macros [stimulus.controller :refer [->controller]]))
 
 (defonce current-application (atom nil))
 
@@ -18,7 +18,7 @@
   (let [app (.start Application)]
     (reset! current-application app)
     (doseq [[key controller] (:controllers application)]
-      (let [c `(defcontroller ~(controller-name key) {:extends ~(:extends controller)} [])]
+      (let [c `(->controller ~(controller-name key) {:extends ~(:extends controller)} [])]
         (println c)))))
 
 (defn stop [application]

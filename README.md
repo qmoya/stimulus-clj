@@ -10,7 +10,7 @@ using ClojureScript.
 
 ## Usage
 
-An example Pedestal server:
+### Server-side
 
 ```clojure
 (ns my.example
@@ -45,22 +45,24 @@ An example Pedestal server:
       http/start))
 ```
 
-On the ClojureScript side:
+### Client-side
+
 ```clojure
-(ns my.client
-  (:require [stimulus.core :refer [defcontroller] :as stimulus]
+(ns stimulus.example.example
+  (:require [stimulus.controller :refer [->controller]]
             ["@hotwired/stimulus" :refer [Controller Application]]
             [goog.dom :as gdom]))
 
-(defcontroller ^{:extends Controller} GreetController
-  {:targets ["output" "name"]}
-  [(greet [this event]
-          (let [output-target (.get-output-target this)
-                name-target (.get-name-target this)
-                name (.-value name-target)
-                greeting (str "Hello, " name "!")]
-            (gdom/setTextContent output-target greeting)))])
+(defn greet [controller event]
+  (let [name-target (get-name-target controller)
+        output-target (get-output-target controller)]
+    (gdom/setTextContent output-target (str "Hello, " (.-value name-target)))))
+  
+(def greet-controller (-> {:extends Controller
+                           :targets ["output" "name"]
+                           :actions {:greet greet}}
+                          ->controller))
 
 (let [application (.start Application)]
-  (.register application "greet" GreetController))
+  (.register application "hello" greet-controller))
 ```

@@ -1,11 +1,5 @@
 {:deps true
- :dev-http {8021 "out/test"}
- :builds {:test {:target :browser-test
-                 :test-dir "out/test"
-                 :compiler-options {:output-feature-set :es2018}}
-          :examples {:target :browser
-                     :output-dir "out"
-                     :asset-path "/out"
-                     :modules {:main {:entries [stimulus.examples]}}
-                     :release {:compiler-options {:infer-externs true
-                                                  :closure-defines {goog.DEBUG false}}}}}}
+ :builds {:examples {:target :browser
+                     :output-dir "resources/public/js"
+                     :asset-path "/js"
+                     :modules {:main {:entries [stimulus.example.example]}}}}}
