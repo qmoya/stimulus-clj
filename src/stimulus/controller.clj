@@ -9,10 +9,10 @@
                   (let ~(vector 'targets (list '.-targets 'this))
                     ~(list '.find 'targets (name target-name))))))
 
-;; (defn external-target-fn [target-name]
-;;   (let [target-sym (symbol (str "get-" target-name "-target"))]
-;;     (list 'defn ~target-sym ~(vector 'controller)
-;;        ~(list (str "." target-sym) 'controller))))
+(defn external-target-fn [target-name]
+  (let [target-sym (symbol (str "get-" target-name "-target"))]
+    (list 'defn ~target-sym ~(vector 'controller)
+          ~(list (str "." target-sym) 'controller))))
 
 (defn controller-name [filename]
   (let [name (-> filename
@@ -27,7 +27,7 @@
 
 (defn controller [name options]
   (let [target-fns (map target-fn (:targets options))
-        ;; external-target-fns (map external-target-fn (:targets options))
+        external-target-fns (map external-target-fn (:targets options))
         methods (map make-method (:actions options))]
     `(do
        (defclass ~name

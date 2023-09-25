@@ -3,16 +3,18 @@
             [stimulus.controller :refer [->controller]]
             [cljs.pprint :refer [pprint]]))
 
+(deftest test-target-functions
+  true)
+
 (deftest test-greet-controller
-  (let [expansion (macroexpand '(defcontroller GreetController
-                                  {:extends Controller
-                                   :targets ["output" "name"]
-                                   :actions {:greet (fn [this event]
-                                                     (js/console.log event))}}))]
+  (let [expansion (macroexpand '(->controller GreetController {:extends Controller
+                                               :targets ["output" "name"]
+                                               :actions {:greet (fn [this event]
+                                                                  (js/console.log event))}}))]
     (pprint expansion)
     (is (= expansion '(do
                         (shadow.cljs.modern/defclass GreetController
-                          (extends nil)
+                          (extends Controller)
                           (constructor [this context]
                                        (super context))
                           Object
@@ -23,5 +25,6 @@
                                            (clojure.core/let [targets (.-targets this)]
                                              (.find targets "name")))
                           (greet [this event] ((fn [this event] (js/console.log event)) this event)))
-                        (set! (.-targets GreetController) (clj->js ["output" "name"])))))))
+                        (set! (.-targets GreetController) (clj->js ["output" "name"]))
+                        GreetController)))))
 
