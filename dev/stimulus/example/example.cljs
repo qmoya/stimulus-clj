@@ -4,8 +4,10 @@
             [goog.dom :as gdom]))
 
 (defn greet [controller event]
-  (js/console.log (.-value (get-name-target controller))))
-
+  (let [name-target (get-name-target controller)
+        output-target (get-output-target controller)]
+    (gdom/setTextContent output-target (str "Hello, " (.-value name-target)))))
+  
 (def greet-controller (-> {:extends Controller
                            :targets ["output" "name"]
                            :actions {:greet greet}}
