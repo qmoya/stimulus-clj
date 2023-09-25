@@ -9,3 +9,4 @@ node_modules/
 .nrepl-port
 .shadow-cljs/
 cljs-test-runner-out/
+resources/public/js/

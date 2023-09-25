@@ -25,7 +25,7 @@
          methods (map make-method (:actions options))]
      `(do
         (defclass ~name
-          (~'extends ~(:extends (meta name)))
+          (~'extends ~(:extends options))
           (~'constructor ~(vector 'this 'context)
                          ~(list 'super 'context))
    
