@@ -1,9 +1,9 @@
-(ns stimulus.example.example
+(ns stimulus.example.greet
   (:require [stimulus.controller :refer [->controller]]
-            ["@hotwired/stimulus" :refer [Controller Application]]
+            ["@hotwired/stimulus" :refer [Controller]]
             [clojure.browser.dom :as dom]))
 
-(defn greet [controller event]
+(defn greet [controller _]
   (let [name-target (get-name-target controller)
         output-target (get-output-target controller)]
     (dom/set-text output-target (str "Hello, " (dom/get-value name-target)))))
@@ -13,5 +13,3 @@
                            :actions {:greet greet}}
                           ->controller))
 
-(let [application (.start Application)]
-  (.register application "hello" greet-controller))

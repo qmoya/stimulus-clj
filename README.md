@@ -23,11 +23,11 @@ using Clojure.
   {:status  200
    :headers {"Content-Type" "text/html; charset=utf-8"}
    :body    (page/html5 [:head
-                         [:title "Strada Demo"]
+                         [:title "Stimulus Examples"]
                          (page/include-js "/js/main.js")]
                         [:div {:data-controller "hello"}
                          [:input {:data-hello-target "name", :type "text"}]
-                         [:button {:data-action "click->hello#greet"} "Hello"]
+                         [:button {:data-action "click->hello#greet"} "Greet"]
                          [:span {:data-hello-target "output"}]])})
 
 (def routes
@@ -37,7 +37,7 @@ using Clojure.
 (defn -main
   [& args]
   (-> {::http/routes         routes
-       ::http/port           8082
+       ::http/port           3000
        ::http/resource-path  "/public"
        ::http/secure-headers {:content-security-policy-settings {:object-src "none"}}
        ::http/type           :jetty}

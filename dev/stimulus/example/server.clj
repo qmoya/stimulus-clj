@@ -13,7 +13,19 @@
                         [:div {:data-controller "hello"}
                          [:input {:data-hello-target "name", :type "text"}]
                          [:button {:data-action "click->hello#greet"} "Greet"]
-                         [:span {:data-hello-target "output"}]])})
+                         [:span {:data-hello-target "output"}]]
+                        [:div {:data-controller "clipboard"} "PIN: "
+                         [:input {:data-clipboard-target "source"
+                                  :type "text"
+                                  :value "1234"
+                                  :readonly true}]
+                         [:button {:data-action "clipboard#copy"} "Copy to Clipboard"]]
+                        [:div {:data-controller "clipboard"} "PIN: "
+                         [:textarea {:data-clipboard-target "source"
+                                  :type "text"
+                                  :value "ABCDEFG"
+                                  :readonly true} "ABCDEFG"]
+                         [:a {:href "#" :data-action "clipboard#copy"} "Copy to Clipboard"]])})
 
 (def routes
   (route/expand-routes

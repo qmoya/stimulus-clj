@@ -1,5 +1,6 @@
 {:deps true
- :builds {:examples {:target :browser
+ :builds {:examples {:compiler-options {:infer-externs true}
+                     :target :browser
                      :output-dir "resources/public/js"
                      :asset-path "/js"
-                     :modules {:main {:entries [stimulus.example.example]}}}}}
+                     :modules {:main {:entries [stimulus.example.application]}}}}}
