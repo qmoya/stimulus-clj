@@ -42,7 +42,6 @@
        ~@external-target-fns
        ~name)))
 
-(defmacro ->controller
-  {:clj-kondo/ignore [:unresolved-symbol :infer-warning ]}
+(defmacro ->controller 
   ([name options] (controller name options))
   ([options] (controller (gensym "Controller") options)))
