@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
+        
+  
+  
   <modelVersion>4.0.0</modelVersion>
-    
+        
+  
+  
   <groupId>com.github.qmoya</groupId>
-    
+        
+  
+  
   <artifactId>stimulus</artifactId>
-    
+        
+  
+  
   <version>0.1.5</version>
-    
+        
+  
+  
   <name>stimulus-clj</name>
-    
+        
+  
+  
   <dependencies>
         
     <dependency>
@@ -34,19 +46,41 @@
     </dependency>
       
   </dependencies>
-    
-  <build>
         
-    <sourceDirectory>src</sourceDirectory>
-      
-  </build>
+  
+  
+  <build>
+                
     
+    
+    <sourceDirectory>src</sourceDirectory>
+              
+  
+  
+  </build>
+        
+  
+  
   <repositories/>
+      
+  
   
   <scm>
+            
+    
     <url>https://github.com/qmoya/stimulus-clj/tree/master</url>
-    <tag>adb840131ba3e6f65a36f307ec854bf0e4dd5556</tag>
+            
+    
+    <tag>c66239e38784903c87e6198468c7ff8c244aa98f</tag>
+            
+    
     <connection>scm:git:https://github.com/qmoya/stimulus-clj.git</connection>
+            
+    
     <developerConnection>scm:git:https://github.com/qmoya/stimulus-clj.git</developerConnection>
+          
+  
   </scm>
+    
+
 </project>
